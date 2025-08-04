@@ -1,1 +1,111 @@
-<pre lang="markdown"> ```markdown # 📘 API de Gerenciamento de Usuários API RESTful desenvolvida com **Java 17** e **Spring Boot** para gerenciamento de usuários. Permite operações de **CRUD** (Create, Read, Update, Delete) completas, com documentação Swagger, persistência com Spring Data JPA e banco de dados em memória H2. --- ## 🚀 Tecnologias Utilizadas - **Java 17** - Linguagem principal - **Spring Boot** - Framework para desenvolvimento rápido e moderno - **Spring Data JPA** - Abstração para acesso ao banco de dados - **H2 Database** - Banco em memória para desenvolvimento e testes - **Lombok** - Redução de código boilerplate - **Swagger (SpringDoc OpenAPI)** - Documentação e testes da API - **JUnit** - Testes unitários --- ## 📦 Funcionalidades da API - ✅ Cadastrar novo usuário (`POST /usuarios`) - ✅ Listar todos os usuários (`GET /usuarios`) - ✅ Buscar usuário por ID (`GET /usuarios/{id}`) - ✅ Atualizar usuário (`PUT /usuarios/{id}`) - ✅ Deletar usuário (`DELETE /usuarios/{id}`) --- ## 📂 Estrutura de Diretórios ```bash src/ └── main/ ├── java/ │ └── com.keven.usuarioapi/ │ ├── controller/ │ ├── model/ │ ├── repository/ │ ├── service/ │ └── UsuarioApiApplication.java └── resources/ ├── application.properties ``` --- ## 🧪 Como Rodar o Projeto ### Pré-requisitos - Java 17 instalado - Maven instalado - IDE (IntelliJ, VSCode, Eclipse) ### Passo a passo ```bash # Clone o repositório git clone https://github.com/Keven-Nogueira-da-Silva/usuario-api.git # Acesse a pasta do projeto cd usuario-api # Execute com Maven ./mvnw spring-boot:run ``` A aplicação estará rodando em: ``` http://localhost:8080 ``` --- ## 📌 Endpoints da API ### 🔹 Criar Usuário `POST /usuarios` ```json { "nome": "Keven Nogueira", "email": "keven@email.com", "telefone": "21999999999" } ``` --- ### 🔹 Listar Todos `GET /usuarios` --- ### 🔹 Buscar por ID `GET /usuarios/{id}` --- ### 🔹 Atualizar Usuário `PUT /usuarios/{id}` ```json { "nome": "Keven Atualizado", "email": "keven@novo.com", "telefone": "21998887777" } ``` --- ### 🔹 Deletar Usuário `DELETE /usuarios/{id}` --- ## 📊 Acessar Documentação Swagger Você pode testar todos os endpoints pela interface gráfica do Swagger: ``` http://localhost:8080/swagger-ui.html ``` --- ## 🧠 Sobre o Projeto Este projeto foi criado com foco em aprendizado e portfólio, simulando a construção de uma API completa com boas práticas, camadas bem definidas, documentação e testes locais. Ideal para treinar conceitos essenciais de back-end Java com Spring. --- ## 🧑‍💻 Autor **Keven Nogueira da Silva** 📍 Duque de Caxias - RJ 🔗 [LinkedIn](https://www.linkedin.com/in/keven-nogueira-da-silva) 📂 [Portfólio](https://vsportfolio.com.br/#services) --- ## 📄 Licença Este projeto está sob a licença MIT. Sinta-se livre para usar e contribuir. ``` </pre>
+```markdown
+# 📋 Projeto API de Usuários - Spring Boot
+
+Este projeto é uma API RESTful desenvolvida com **Java 17** e **Spring Boot**, com funcionalidades completas de cadastro, listagem, atualização e remoção de usuários. Ideal para aprender e demonstrar domínio de CRUD com boas práticas de desenvolvimento.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- Java 17+
+- Spring Boot
+- Spring Data JPA
+- H2 Database (banco de dados em memória para testes)
+- Lombok (anotações para reduzir boilerplate)
+- Swagger (documentação interativa da API)
+- JUnit (testes unitários)
+
+---
+
+## 📁 Estrutura de Pastas
+
+```bash
+src/
+├── main/
+│   ├── java/
+│   │   └── com.keven.usuarioapi/
+│   │       ├── controller/
+│   │       ├── model/
+│   │       ├── repository/
+│   │       ├── service/
+│   │       └── UsuarioApiApplication.java
+│   └── resources/
+│       └── application.properties
+```
+
+---
+
+## ▶️ Como Rodar o Projeto
+
+### ✅ Pré-requisitos
+- Java 17 instalado
+- Maven instalado
+- IDE (IntelliJ, VSCode ou Eclipse)
+
+### 🔧 Passos para rodar
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/SeuUsuario/usuario-api.git
+   ```
+
+2. Navegue até o diretório:
+   ```bash
+   cd usuario-api
+   ```
+
+3. Rode o projeto:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+4. Acesse o Swagger:
+   ```
+   http://localhost:8080/swagger-ui/index.html
+   ```
+
+---
+
+## 📮 Endpoints da API
+
+| Método | Endpoint           | Descrição                 |
+|--------|--------------------|---------------------------|
+| GET    | `/usuarios`        | Lista todos os usuários   |
+| GET    | `/usuarios/{id}`   | Retorna um usuário por ID |
+| POST   | `/usuarios`        | Cria um novo usuário      |
+| PUT    | `/usuarios/{id}`   | Atualiza um usuário       |
+| DELETE | `/usuarios/{id}`   | Remove um usuário         |
+
+---
+
+## 🧪 Testando com Postman
+
+Você pode testar os endpoints diretamente no Postman ou no Swagger.
+
+### Exemplo de corpo para POST:
+```json
+{
+  "nome": "Keven",
+  "email": "keven@email.com"
+}
+```
+
+---
+
+## 🧠 Aprendizados
+
+- Estrutura de projeto Spring Boot
+- Criação de REST APIs
+- Boas práticas com camadas (Controller, Service, Repository)
+- Testes com JUnit
+- Integração com Swagger
+- Uso do banco H2 para facilitar o desenvolvimento e testes
+
+---
+
+## 📌 Observações
+
+- O projeto usa banco H2 em memória, portanto os dados são apagados ao reiniciar.
+- Pode ser facilmente adaptado para MySQL, PostgreSQL, etc.
+
+---
+```
