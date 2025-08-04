@@ -1,7 +1,9 @@
 ```markdown
 # 📋 Projeto API de Usuários - Spring Boot
 
-Este projeto é uma API RESTful desenvolvida com **Java 17** e **Spring Boot**, com funcionalidades completas de cadastro, listagem, atualização e remoção de usuários. Ideal para aprender e demonstrar domínio de CRUD com boas práticas de desenvolvimento.
+Este projeto é uma API RESTful desenvolvida com **Java 17** e **Spring Boot**,
+com funcionalidades completas de cadastro, listagem, atualização e remoção de usuários.
+ Ideal para aprender e demonstrar domínio de CRUD com boas práticas de desenvolvimento.
 
 ---
 
