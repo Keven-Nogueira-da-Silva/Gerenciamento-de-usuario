@@ -3,10 +3,10 @@
 
 Este projeto é uma API RESTful desenvolvida com **Java 17** e **Spring Boot**,
 com funcionalidades completas de cadastro, listagem, atualização e remoção de usuários.
- Ideal para aprender e demonstrar domínio de CRUD com boas práticas de desenvolvimento.
-
+Ideal para aprender e demonstrar domínio de CRUD com boas práticas de desenvolvimento.
+-
 ---
-
+-
 ## 🧰 Tecnologias Utilizadas
 
 - Java 17+
@@ -16,9 +16,9 @@ com funcionalidades completas de cadastro, listagem, atualização e remoção d
 - Lombok (anotações para reduzir boilerplate)
 - Swagger (documentação interativa da API)
 - JUnit (testes unitários)
-
+-
 ---
-
+-
 ## 📁 Estrutura de Pastas
 
 ```bash
@@ -34,7 +34,6 @@ src/
 │   └── resources/
 │       └── application.properties
 ```
-
 ---
 
 ## ▶️ Como Rodar o Projeto
