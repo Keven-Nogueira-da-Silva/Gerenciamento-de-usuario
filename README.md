@@ -1,112 +1,147 @@
-```markdown
-# 📋 Projeto API de Usuários - Spring Boot
+# 🗓️ Sistema de Reservas com Spring Boot
 
-Este projeto é uma API RESTful desenvolvida com **Java 17** e **Spring Boot**,
-com funcionalidades completas de cadastro, listagem, atualização e remoção de usuários.
-Ideal para aprender e demonstrar domínio de CRUD com boas práticas de desenvolvimento.
--
+Este é um sistema de autenticação e gerenciamento de reservas desenvolvido em **Java com Spring Boot**, utilizando arquitetura em camadas e autenticação com Spring Security (Basic Auth).
+
 ---
--
-## 🧰 Tecnologias Utilizadas
+
+## 🚀 Tecnologias Utilizadas
 
 - Java 17+
-- Spring Boot
+- Spring Boot 3.x
+- Spring Web
+- Spring Security
 - Spring Data JPA
-- H2 Database (banco de dados em memória para testes)
-- Lombok (anotações para reduzir boilerplate)
-- Swagger (documentação interativa da API)
-- JUnit (testes unitários)
--
----
--
-## 📁 Estrutura de Pastas
+- Hibernate
+- H2 Database (ou MySQL/PostgreSQL)
+- Maven
 
-```bash
+---
+
+## 📁 Estrutura do Projeto
+
+```
 src/
 ├── main/
 │   ├── java/
-│   │   └── com.keven.usuarioapi/
-│   │       ├── controller/
-│   │       ├── model/
-│   │       ├── repository/
-│   │       ├── service/
-│   │       └── UsuarioApiApplication.java
+│   │   └── reservas.com.Sistema_de_reservas/
+│   │       ├── controller/      # Controladores REST
+│   │       ├── dto/             # Objetos de transferência
+│   │       ├── model/           # Entidades JPA
+│   │       ├── repository/      # Repositórios (JPA)
+│   │       ├── service/         # Regras de negócio
+│   │       └── config/          # Segurança e configuração
 │   └── resources/
-│       └── application.properties
+│       ├── application.properties
+│       └── static/ e templates/ (caso use frontend)
 ```
----
-
-## ▶️ Como Rodar o Projeto
-
-### ✅ Pré-requisitos
-- Java 17 instalado
-- Maven instalado
-- IDE (IntelliJ, VSCode ou Eclipse)
-
-### 🔧 Passos para rodar
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/SeuUsuario/usuario-api.git
-   ```
-
-2. Navegue até o diretório:
-   ```bash
-   cd usuario-api
-   ```
-
-3. Rode o projeto:
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
-4. Acesse o Swagger:
-   ```
-   http://localhost:8080/swagger-ui/index.html
-   ```
 
 ---
 
-## 📮 Endpoints da API
+## 🔧 Configuração `application.properties`
 
-| Método | Endpoint           | Descrição                 |
-|--------|--------------------|---------------------------|
-| GET    | `/usuarios`        | Lista todos os usuários   |
-| GET    | `/usuarios/{id}`   | Retorna um usuário por ID |
-| POST   | `/usuarios`        | Cria um novo usuário      |
-| PUT    | `/usuarios/{id}`   | Atualiza um usuário       |
-| DELETE | `/usuarios/{id}`   | Remove um usuário         |
+```properties
+spring.application.name=Sistema-de-reservas
+server.port=8080
+
+# H2 (padrão)
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+
+# H2 Console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+```
 
 ---
 
-## 🧪 Testando com Postman
+## 🔐 Funcionalidades
 
-Você pode testar os endpoints diretamente no Postman ou no Swagger.
+- ✅ Registro de usuários
+- ✅ Autenticação (Basic Auth)
+- ✅ Segurança com Spring Security
+- ✅ Senhas criptografadas (BCrypt)
+- 🔜 CRUD de Reservas
+- 🔜 Integração com JWT
 
-### Exemplo de corpo para POST:
+---
+
+## 🧪 Testes com Postman
+
+### 1. Registrar Usuário
+
+**POST** `http://localhost:8080/auth/registrar`  
+**Body (JSON):**
+
 ```json
 {
-  "nome": "Keven",
-  "email": "keven@email.com"
+  "username": "keven",
+  "password": "1234"
 }
 ```
 
 ---
 
-## 🧠 Aprendizados
+### 2. Acessar Rota Protegida
 
-- Estrutura de projeto Spring Boot
-- Criação de REST APIs
-- Boas práticas com camadas (Controller, Service, Repository)
-- Testes com JUnit
-- Integração com Swagger
-- Uso do banco H2 para facilitar o desenvolvimento e testes
+**GET** `http://localhost:8080/user/teste`  
+- Vá na aba **Authorization**
+- Tipo: **Basic Auth**
+- Username: `keven`
+- Password: `1234`
+
+Se autenticado com sucesso, você verá a resposta da rota protegida.
+
+---
+
+## ✅ Endpoints
+
+| Método | Endpoint              | Autenticação | Descrição                    |
+|--------|------------------------|--------------|------------------------------|
+| POST   | `/auth/registrar`      | ❌           | Registro de novo usuário     |
+| GET    | `/user/teste`          | ✅ BasicAuth | Teste de rota protegida      |
 
 ---
 
-## 📌 Observações
+## 📦 Executando o Projeto
 
-- O projeto usa banco H2 em memória, portanto os dados são apagados ao reiniciar.
-- Pode ser facilmente adaptado para MySQL, PostgreSQL, etc.
+```bash
+# Clone o projeto
+git clone https://github.com/seu-usuario/sistema-de-reservas.git
 
----
+# Acesse a pasta
+cd sistema-de-reservas
+
+# Execute com Maven
+./mvnw spring-boot:run
 ```
+
+Abra o navegador ou Postman:  
+👉 `http://localhost:8080`
+
+---
+
+## 🧩 Possibilidades Futuras
+
+- 🔒 JWT (JSON Web Token)
+- 📅 CRUD completo de Reservas
+- 📊 Painel administrativo
+- 📱 Front-end com React ou Thymeleaf
+- 🧪 Testes com JUnit e Mockito
+
+---
+
+## 👨‍💻 Autor
+
+**Keven Nogueira da Silva**  
+📍 Duque de Caxias, RJ  
+🔗 [LinkedIn](https://www.linkedin.com/in/keven-nogueira-da-silva-44237b361/)
+
+---
+
+## 📝 Licença
+
+Este projeto está licenciado sob a Licença MIT.
